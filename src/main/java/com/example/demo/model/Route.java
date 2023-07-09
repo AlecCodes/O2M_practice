@@ -1,0 +1,40 @@
+package com.example.demo.model;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "routes")
+public class Route {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "route_generator")
+    private long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name="distance")
+    private double distance;
+
+    public Route(){}
+
+    public Route(String name, double distance){
+        this.name = name;
+        this.distance = distance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+}
