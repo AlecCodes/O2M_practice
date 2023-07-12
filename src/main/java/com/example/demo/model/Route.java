@@ -37,4 +37,12 @@ public class Route {
     public void setDistance(double distance) {
         this.distance = distance;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }
