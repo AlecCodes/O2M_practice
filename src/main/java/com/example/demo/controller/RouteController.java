@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.model.Route;
 import com.example.demo.repository.RouteRepository;
@@ -25,5 +26,10 @@ public class RouteController {
         return routeRepository.findByNameLike("%"+search+"%");
     }
 
+    @PostMapping("/routes")
+    public Optional<Route> postRoute(@RequestBody Route route){
+        Route _route = routeRepository.save(new Route(route.getName(), route.getDistance()));
+        return Optional.of(_route);
+    }
 
 }

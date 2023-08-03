@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 public class Route {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "route_generator")
+    @SequenceGenerator(name = "routes_seq", sequenceName = "routes_pkey", allocationSize = 1)
     private long id;
 
     @Column(name = "name")
