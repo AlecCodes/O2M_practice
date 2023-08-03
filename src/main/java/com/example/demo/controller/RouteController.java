@@ -32,4 +32,15 @@ public class RouteController {
         return Optional.of(_route);
     }
 
+    @PutMapping("/routes/{id}")
+    public Optional<Route> putRoute(@PathVariable("id") long id, @RequestBody Route route){
+        Route _route = routeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Couldnt find route w id: " + id));
+
+        _route.setName(route.getName());
+        _route.setDistance(route.getDistance());
+
+        return Optional.of(routeRepository.save(_route));
+    }
+
 }
