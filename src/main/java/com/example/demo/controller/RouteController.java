@@ -43,4 +43,12 @@ public class RouteController {
         return Optional.of(routeRepository.save(_route));
     }
 
+    @DeleteMapping("/routes/{id}")
+    public Optional<Route> deleteRoute(@PathVariable("id") long id){
+        Route _route = routeRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Couldnt find route w id:" + id));
+        routeRepository.deleteById(id);
+        return Optional.of(_route);
+    }
+
 }
