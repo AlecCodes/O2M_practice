@@ -18,7 +18,7 @@ public class Run {
     @Column(name="to,e")
     private double time;
 
-    @ManyToOne(fetch=FetchType.LAZY, optional = false)
+    @ManyToOne(fetch=FetchType.EAGER, optional = false)
     @JoinColumn(name = "run_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
