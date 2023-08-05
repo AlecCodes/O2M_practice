@@ -6,8 +6,9 @@ import jakarta.persistence.*;
 @Table(name = "routes")
 public class Route {
     @Id
+    //Generator must be the same as the name of the sequence generator in order for allocation size to work.
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "route_generator")
-    @SequenceGenerator(name = "routes_seq", sequenceName = "routes_pkey", allocationSize = 1)
+    @SequenceGenerator(name = "routes_generator", sequenceName = "routes_pkey", allocationSize = 1)
     private long id;
 
     @Column(name = "name")

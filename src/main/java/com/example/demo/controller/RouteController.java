@@ -21,7 +21,10 @@ public class RouteController {
         return routeRepository.findAll();
     }
 
-
+    @GetMapping("/routes/{id}")
+    public Optional<Route> getRouteByID(@PathVariable long id){
+        return routeRepository.getRouteById(id);
+    }
 
     @GetMapping("/routes/searchinstant/{search}")
     public List<Route> getSearch(@PathVariable(value = "search") String search){
