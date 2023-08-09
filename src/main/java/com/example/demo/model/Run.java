@@ -10,6 +10,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class Run {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "run_generator")
+    @SequenceGenerator(name = "run_generator", sequenceName = "runs_seq", allocationSize = 1)
     private long id;
 
     @Column(name="name")
