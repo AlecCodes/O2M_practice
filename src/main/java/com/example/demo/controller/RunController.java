@@ -26,9 +26,10 @@ public class RunController {
     public List<Run> getRuns() {return runRepository.findAll();}
 
     //Show all by route id?
-//    @GetMapping("/routes/{routeID}/runs")
-//    public List<Run> getRunsByRoute(@PathVariable(value="routeID") Long id){
-//    }
+    @GetMapping("/routes/{routeID}/runs")
+    public List<Run> getRunsByRoute(@PathVariable(value="routeID") Long id){
+        return runRepository.getRunByRouteId(id);
+    }
 
     @GetMapping("/runs/{id}")
     public Optional<Run> getRunById(@PathVariable(value="id") Long id ){
