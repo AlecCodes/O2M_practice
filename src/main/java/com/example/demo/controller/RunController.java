@@ -56,8 +56,11 @@ public class RunController {
         return Optional.of(run);
     }
 
-
-
-
+    @DeleteMapping("/runs/{id}")
+    public Optional<Run> deleteRun(@PathVariable(value = "id") Long runId){
+        Run run = runRepository.findById(runId).orElseThrow(() -> new RuntimeException("Couldn't find run w id: " + runId));
+        runRepository.deleteById(runId);
+        return Optional.of(run);
+    }
 
 }
