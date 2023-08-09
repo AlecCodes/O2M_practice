@@ -47,4 +47,12 @@ public class Run {
     public void setRoute(Route route) {
         this.route = route;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }
