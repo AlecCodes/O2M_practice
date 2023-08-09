@@ -48,6 +48,14 @@ public class RunController {
         return Optional.of(run);
     }
 
+    @PutMapping("/runs/{id}")
+    public Optional<Run> editRun(@PathVariable(value = "id") Long runId, @RequestBody Run runRequest){
+        Run run = runRepository.findById(runId).orElseThrow(() -> new RuntimeException("Couldn't find run w id: " + runId));
+        run.setName(runRequest.getName());
+        run.setTime(runRequest.getTime());
+        return Optional.of(run);
+    }
+
 
 
 
