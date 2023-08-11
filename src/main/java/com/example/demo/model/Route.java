@@ -1,5 +1,7 @@
 package com.example.demo.model;
+import java.util.List;
 
+import com.example.demo.model.Run;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +18,9 @@ public class Route {
 
     @Column(name="distance")
     private double distance;
+
+    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY)
+    private List<Run> runs;
 
     public Route(){}
 
@@ -46,5 +51,13 @@ public class Route {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Run> getRuns() {
+        return runs;
+    }
+
+    public void setRuns(List<Run> runs) {
+        this.runs = runs;
     }
 }
